@@ -105,8 +105,11 @@ ENV/
 env.bak/
 venv.bak/
 env.py
+
+# PostgreSQL
 .my_pgpass
 .pg_config
+.pg_service.conf
 
 # Spyder project settings
 .spyderproject
