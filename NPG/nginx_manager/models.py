@@ -1,5 +1,6 @@
 from django.db import models
-from django.utils import timezone 
+from django.utils import timezone
+from django.utils.safestring import mark_safe 
 # Create your models here.
 
 class ManagerConfig(models.Model):
@@ -10,6 +11,6 @@ class ManagerConfig(models.Model):
     location_index = models.TextField()
 
     def __str__(self):
-        return self.server_config_name
+        return mark_safe(("<img src='https://img.icons8.com/wired/512/server.png' width='20' height='20'>"+ self.server_config_name))
 
 
