@@ -106,6 +106,7 @@ env.bak/
 venv.bak/
 env.py
 .my_pgpass
+.pg_config
 
 # Spyder project settings
 .spyderproject
