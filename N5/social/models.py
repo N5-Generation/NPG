@@ -1,3 +1,8 @@
 from django.db import models
 
 # Create your models here.
+class SocialProfile(models.Model):
+    social_name = models.CharField(default="Unnamed social profile", max_length=100)
+    social_icon = models.CharField(default="path/to/social/icon", max_length=100)
+    social_link = models.CharField(default="https://social.nepmia.fr/", max_length=100)
+

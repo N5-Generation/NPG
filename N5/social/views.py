@@ -1,6 +1,9 @@
+from unicodedata import name
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from .models import SocialProfile
 
 def index(request):
-    return HttpResponse("Hello, world.")
+
+    social_profiles = list(SocialProfile.objects.all())
+
+    return render(request, "test.html", {"nik": social_profiles})

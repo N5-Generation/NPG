@@ -1,10 +1,10 @@
 from django.db import models
-from django.utils import timezone
 from django.utils.safestring import mark_safe 
 # Create your models here.
 
 class ManagerConfig(models.Model):
-    server_config_name = models.TextField(default="Untilted config [" + str(timezone.now) +"]")
+    created_at = models.DateTimeField(auto_now_add=True)
+    server_config_name = models.TextField(default="Untilted config")
     server_listen_port = models.PositiveIntegerField()
     server_name = models.TextField()
     location_root = models.TextField()
