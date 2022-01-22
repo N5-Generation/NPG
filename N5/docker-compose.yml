@@ -1,0 +1,38 @@
+version: "3.8"
+
+services: 
+  db: 
+    container_name: npg_db
+    image: postgres:latest
+    restart: always
+    env_file: 
+      - .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      
+  npg:
+    container_name: npg
+    build: .
+    image: npg
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/N5
+    depends_on: 
+      db:
+        condition: service_healthy
+    ports: 
+      - 8069:8069
+    command: sh -c "
+      python3 manage.py makemigrations &&
+      python3 manage.py migrate &&
+      python3 manage.py runserver 0.0.0.0:8069"
+  
+volumes:
+  pg_data:
