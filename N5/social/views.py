@@ -1,6 +1,6 @@
-from unicodedata import name
 from django.shortcuts import render
 from .models import SocialProfile
+
 
 def index(request):
 

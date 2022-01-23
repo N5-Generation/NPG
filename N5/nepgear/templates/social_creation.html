@@ -1,6 +1,4 @@
-{% include "global_head.html" %}
-
-<form method="post" class="n5-form">
+<form method="post" class="n5-form" target-url="/nepgear/add-social">
     {% csrf_token %}
     {{form}}
     <button type="submit" class="n5-btn">Submit</button>

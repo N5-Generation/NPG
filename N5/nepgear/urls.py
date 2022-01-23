@@ -3,5 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.SocialCreationView.as_view(), name='form'),
+    path('add-social', views.SocialCreationView.as_view(), name='form'),
+    path('', views.social_admin, name='social_admin'),
 ]

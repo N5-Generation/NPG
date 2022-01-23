@@ -40,24 +40,15 @@ class SocialCreationForm(forms.ModelForm):
         model = SocialProfile
         fields = ("social_name", "social_icon", "social_link")
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     icon_link = cleaned_data.get("social_icon")
 
-    #     possible_extension = (".jpg", ".png", ".svg")
-
-    #     if not str(icon_link).endswith(possible_extension):
-    #         self.add_error(
-    #             "social_icon",
-    #             forms.ValidationError("Not a valid type, must be JPG, PNG or SVG.")
-    #         )
-    
-    def clean_social_icon(self):
-        data = self.cleaned_data["social_icon"]
+    def clean(self):
+        cleaned_data = super().clean()
+        icon_link = cleaned_data.get("social_icon")
 
         possible_extension = (".jpg", ".png", ".svg")
 
-        if not str(data).endswith(possible_extension):
-            raise forms.ValidationError("Not a valid type, must be JPG, PNG or SVG.")
-
-        return data
+        if not str(icon_link).endswith(possible_extension):
+            self.add_error(
+                "social_icon",
+                forms.ValidationError("Not a valid type, must be JPG, PNG or SVG.")
+            )

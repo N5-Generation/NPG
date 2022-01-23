@@ -1,9 +1,15 @@
-from django.forms import forms
 from django.shortcuts import redirect, render
 from django.views import View
+from django.utils.decorators import method_decorator
+import json
+
+from NPG.helpers import ajax_required
 from .forms import SocialCreationForm
+from social.models import SocialProfile
 
 # Create your views here.
+
+@method_decorator(ajax_required, name="get")
 class SocialCreationView(View):
     ctx = {
         "form": SocialCreationForm(),
@@ -14,16 +20,18 @@ class SocialCreationView(View):
         return render(request, "social_creation.html", self.ctx)
 
     def post(self, request, *args, **kwargs):
-        
-        form = SocialCreationForm(request.POST)
+        payload = json.loads(request.body.decode())
+        form = SocialCreationForm(payload)
         
         if form.is_valid():
             form.save()
-            return redirect("index")
+            return redirect("/")
 
+        self.ctx["form"] = form
         return render(request, "social_creation.html", self.ctx)
-        
 
+def social_admin(request):
+    social_profiles = list(SocialProfile.objects.all())
 
-
+    return render(request, "social_admin.html", {"nik": social_profiles})
     
