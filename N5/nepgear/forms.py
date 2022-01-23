@@ -5,28 +5,31 @@ from social.models import SocialProfile
 class SocialCreationForm(forms.ModelForm):
     social_name = forms.CharField(
         label="Profile name",
+        label_suffix= "",
         widget=forms.TextInput(
             attrs= {
                 "placeholder": "Profile name",
-                "class": "forms-input"
+                "class": "n5-input"
             }
         )
     )
     social_icon = forms.URLField(
         label="Icon url",
+        label_suffix= "",
         widget=forms.URLInput(
             attrs= {
                 "placeholder": "Icon url",
-                "class": "forms-input"
+                "class": "n5-input"
             }
         )
     )
     social_link = forms.URLField(
         label="Profile url",
+        label_suffix= "",
         widget=forms.URLInput(
             attrs= {
                 "placeholder": "Profile url",
-                "class": "forms-input"
+                "class": "n5-input"
             }
         )
     )

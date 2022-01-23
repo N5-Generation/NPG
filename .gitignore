@@ -131,3 +131,4 @@ dmypy.json
 
 # Django stuff
 migrations/
+N5/NPG/static

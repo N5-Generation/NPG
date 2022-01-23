@@ -20,7 +20,7 @@ class SocialCreationView(View):
         if form.is_valid():
             form.save()
             return redirect("index")
-        
+
         return render(request, "social_creation.html", self.ctx)
         
 
