@@ -1,0 +1,22 @@
+// Color maps
+@colors: {
+    primary: #2d80c3;
+    plight: #6aaff6;
+    pdark: #005492;
+    secondary: #364d9c;
+    slight: #6a79ce;
+    sdark: #00266d;
+    accents: #a080b9;
+    alight: #d2b0eb;
+    adark: #715389;
+}
+
+// Generate an usable class for color and background-color
+each(@colors, {
+    .@{key} {
+        color: @value;
+    }
+    .@{key}-bg {
+        background-color: @value;
+    }
+});
