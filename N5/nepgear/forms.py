@@ -2,6 +2,8 @@ from django import forms
 
 from social.models import SocialProfile
 
+possible_extension = (".jpg", ".png", ".svg")
+
 class SocialCreationForm(forms.ModelForm):
     social_name = forms.CharField(
         label="Profile name",
@@ -9,6 +11,16 @@ class SocialCreationForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs= {
                 "placeholder": "Profile name",
+                "class": "n5-input"
+            }
+        )
+    )
+    social_username = forms.CharField(
+        label="Username/Tag",
+        label_suffix= "",
+        widget=forms.TextInput(
+            attrs= {
+                "placeholder": "Username/Tag",
                 "class": "n5-input"
             }
         )
@@ -33,19 +45,22 @@ class SocialCreationForm(forms.ModelForm):
             }
         )
     )
+    social_color = forms.CharField(
+        label="",
+        label_suffix= "",
+        widget=forms.HiddenInput(),
+        required=False
+    )
 
 
 
     class Meta:
         model = SocialProfile
-        fields = ("social_name", "social_icon", "social_link")
-
+        fields = ("social_name", "social_username", "social_icon", "social_link", "social_color")
 
     def clean(self):
         cleaned_data = super().clean()
         icon_link = cleaned_data.get("social_icon")
-
-        possible_extension = (".jpg", ".png", ".svg")
 
         if not str(icon_link).endswith(possible_extension):
             self.add_error(
