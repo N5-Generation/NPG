@@ -1,5 +1,7 @@
-{% include "global_head.html" %}
+{% extends "base.html" %}
+{% block title %}Social profile administration - Nepgear{% endblock %}
 
+{% block content %}
 <section class="n5-social-frame">
 
     <button class="n5-addbtn getModal primary-bg" method="get" url="/nepgear/add-social" type="form">
@@ -8,7 +10,7 @@
     </button>
 
     {% for item in social_profiles %}
-        <div class="n5-social-item">
+        <div class="n5-social-item" style="background-color: {{item.social_color}};">
             <div class="n5-social-icon-centerer">
                 <img src="{{item.social_icon}}" class="n5-social-icon" alt="{{item.social_name}} Icon">
             </div>
@@ -20,3 +22,4 @@
     {% endfor %}
 
 </section>
+{% endblock %}
