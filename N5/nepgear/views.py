@@ -33,5 +33,7 @@ class SocialCreationView(View):
 def social_admin(request):
     social_profiles = list(SocialProfile.objects.all())
 
-    return render(request, "social_admin.html", {"nik": social_profiles})
+    return render(request, "social_admin.html", {"social_profiles": social_profiles})
     
+def temp_dash(request):
+    return render(request, "temp_dash.html")

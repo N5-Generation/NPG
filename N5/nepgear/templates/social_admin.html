@@ -1,17 +1,22 @@
 {% include "global_head.html" %}
 
-<div class="content">
+<section class="n5-social-frame">
 
-    <button class="n5-addbtn getModal" method="get" url="/nepgear/add-social" type="form">
+    <button class="n5-addbtn getModal primary-bg" method="get" url="/nepgear/add-social" type="form">
         <i class="n5-addbtn-icon fas fa-plus-circle fa-5x"></i>
-        <p class="n5-addbtn-text">ADD SOCIAL PROFILE</p>
+        <p class="n5-addbtn-text uL">ADD SOCIAL PROFILE</p>
     </button>
 
-    {% for item in nik %}
-        {{item.id}}
-        {{item.social_name}}
-        {{item.social_icon}}
-        {{item.social_link}}
+    {% for item in social_profiles %}
+        <div class="n5-social-item">
+            <div class="n5-social-icon-centerer">
+                <img src="{{item.social_icon}}" class="n5-social-icon" alt="{{item.social_name}} Icon">
+            </div>
+            <p class="n5-social-name uB">{{item.social_name}}</p>
+            <a href="{{item.social_link}}" target="_blank" class="n5-social-link">
+                <p class="n5-social-username uR">{{item.social_username}}</p>
+            </a>
+        </div>
     {% endfor %}
 
-</div>
+</section>
