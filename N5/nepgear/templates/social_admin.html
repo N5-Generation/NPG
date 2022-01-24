@@ -5,12 +5,12 @@
 <section class="n5-social-frame">
     
     {% for item in social_profiles %}
-    <div class="n5-social-item" style="background-color: rgb{{item.social_color}};">
+    <div class="n5-social-item" style="background-color: {{item.social_color}};">
         <div class="n5-social-icon-centerer">
             <img src="{{item.social_icon}}" class="n5-social-icon" alt="{{item.social_name}} Icon">
         </div>
         <p class="n5-social-name uB">{{item.social_name}}</p>
-        <a href="{{item.social_link}}" target="_blank" class="n5-social-link">
+        <a href="{{item.social_link}}" target="_blank" rel="noreferrer" class="n5-social-link">
             <p class="n5-social-username uR">{{item.social_username}}</p>
         </a>
     </div>

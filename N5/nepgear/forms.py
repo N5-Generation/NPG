@@ -1,3 +1,4 @@
+from sys import path
 from django import forms
 import requests
 import os
@@ -94,7 +95,9 @@ class SocialCreationForm(forms.ModelForm):
             save_icon.write(downloaded_icon)
         
         if icon_main_color := get_colors(icon_save_path)[0]:
-            form.social_color = str(icon_main_color)
+            rgba_final_color = "rgba" + str(icon_main_color + (.35,))
+            form.social_color = rgba_final_color
+            form.social_icon = f"/static/social_icons/social_{social_name}{file_extension}"
 
         if commit:
             form.save()

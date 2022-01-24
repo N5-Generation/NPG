@@ -11,35 +11,39 @@
 
     {% load static %}
 
-    {# normalize.css #}
-    <link rel="stylesheet" media="screen" href="{% static 'modules/css/normalize.css' %}">
-
-    {# reset.css #}
-    <link rel="stylesheet" media="screen" href="{% static 'modules/css/reset.css' %}">
-
+    
     {# main less rules #}
     <link rel="stylesheet" media="screen" href="{% static 'modules/less/dist/main.css' %}">
-
-    {# jquery #}
-    <script src="{% static 'modules/js/jquery.js' %}" type="text/javascript"></script>
-
-    {# N5/js #}
-    <script src="{% static 'modules/js/N5/forms.js' %}" type="text/javascript"></script>
-    <script src="{% static 'modules/js/N5/modal.js' %}" type="text/javascript"></script>
+    
     {% endblock %}
-
+    
     <title>{% block title %}{% endblock %}</title>
-
+    
 </head>
 
 <body class="n5-darkgrad-background">
+    
+    <div class="n5-texture-container">
+        <div class="n5-texture" style="background-image: url('{% static 'assets/n5-texture.svg' %}')"></div>
+    </div>
+    
     <section id="content">
         {% block content %}
         {% endblock %}
     </section>
-
+    
     <footer id="footer">
         {% block footer %}
         {% endblock %}
     </footer>
+
+    {# jquery #}
+    <script src="{% static 'modules/js/jquery.js' %}" type="text/javascript"></script>
+    {# normalize.css #}
+    <link rel="stylesheet" media="screen" href="{% static 'modules/css/normalize.css' %}">
+    {# reset.css #}
+    <link rel="stylesheet" media="screen" href="{% static 'modules/css/reset.css' %}">
+    {# N5/js #}
+    <script src="{% static 'modules/js/N5/forms.js' %}" type="text/javascript"></script>
+    <script src="{% static 'modules/js/N5/modal.js' %}" type="text/javascript"></script>
 </body>
