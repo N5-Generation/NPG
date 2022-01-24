@@ -1,5 +1,11 @@
 from django import forms
+import requests
+import os
+from pathlib import Path
 
+
+from NPG.settings.base import STATICFILES_DIRS
+from NPG.helpers import get_colors
 from social.models import SocialProfile
 
 possible_extension = (".jpg", ".png", ".svg")
@@ -52,8 +58,6 @@ class SocialCreationForm(forms.ModelForm):
         required=False
     )
 
-
-
     class Meta:
         model = SocialProfile
         fields = ("social_name", "social_username", "social_icon", "social_link", "social_color")
@@ -67,3 +71,31 @@ class SocialCreationForm(forms.ModelForm):
                 "social_icon",
                 forms.ValidationError("Not a valid type, must be JPG, PNG or SVG.")
             )
+
+    def save(self, commit = True):
+        form = super().save(commit)
+
+        # Quick binds
+        social_name = self.cleaned_data["social_name"]
+        social_icon = self.cleaned_data["social_icon"]
+        file_extension = None
+
+        for extension in possible_extension:
+            if extension in social_icon:
+                file_extension = extension 
+
+        downloaded_icon = requests.get(social_icon).content
+        icon_save_path = Path.joinpath(STATICFILES_DIRS[0],"social_icons" , f"social_{social_name}{file_extension}")
+
+        if os.path.exists(icon_save_path):
+            os.mkdir(Path.joinpath(STATICFILES_DIRS[0],"social_icons"))
+
+        with open(icon_save_path, "wb") as save_icon:
+            save_icon.write(downloaded_icon)
+        
+        if icon_main_color := get_colors(icon_save_path)[0]:
+            form.social_color = str(icon_main_color)
+
+        if commit:
+            form.save()
+        return form
