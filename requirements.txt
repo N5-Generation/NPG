@@ -2,3 +2,5 @@ psycopg2-binary
 Django
 termcolors
 python-dotenv
+pillow
+requests
