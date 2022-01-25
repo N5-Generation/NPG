@@ -1,3 +1,5 @@
+modalInstance = null;
+
 $(document).on("click", ".getModal", function() {
     let method = $(this).attr("method");
     let url = $(this).attr("url");
@@ -14,8 +16,16 @@ $(document).on("click", ".getModal", function() {
 
 function createModal(modalType, content) {
     let modalId = Math.random().toString(36).substring(2);
-    let modalName = `${modalType}-modal`;
+    let modalName = `${modalType}-${modalId}`
 
-    $("body").append(`<${modalName} id="${modalId}" class="n5-modal">`);
-    $(`#${modalId}`).append(content);
+    $("body").append(`<modal id="${modalName}" class="n5-modal">`);
+    $(`#${modalName}`).append(content);
 }
+
+function closeModal() {
+    $("modal").addClass("n5-modal-off")
+    modalInstance = setTimeout(() => {
+        $("modal").remove()
+    },500)
+}
+

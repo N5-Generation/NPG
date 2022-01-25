@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from django.utils.decorators import method_decorator
@@ -27,8 +28,9 @@ class SocialCreationView(View):
             form.save()
             return redirect("/")
 
+        errors = form.errors
         self.ctx["form"] = form
-        return render(request, "social_creation.html", self.ctx)
+        return HttpResponse(json.dumps(errors))
 
 def social_admin(request):
     social_profiles = list(SocialProfile.objects.all())

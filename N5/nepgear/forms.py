@@ -72,6 +72,7 @@ class SocialCreationForm(forms.ModelForm):
                 "social_icon",
                 forms.ValidationError("Not a valid type, must be JPG, PNG or SVG.")
             )
+            self.add_error(None, "ERROR")
 
     def save(self, commit = True):
         form = super().save(commit)
