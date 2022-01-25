@@ -21,10 +21,14 @@ function submitForm(form){
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify(data),
-        success: function(data) {
-            if (data.__all__ == "ERROR") {
-                alert("ERROR")
-            }
+        error: function(data) {
+            console.log(data);
+            reloadContent()
         },
+        success: function() {
+            closeModal();
+            reloadContent();
+            console.log(this.url);
+        }
     });
 };

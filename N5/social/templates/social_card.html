@@ -1,0 +1,18 @@
+{% for item in social_profiles %}
+<div class="n5-social-item" style="background-color: {{item.social_color}};">
+    <div class="n5-social-icon-centerer">
+        <img src="{{item.social_icon}}" class="n5-social-icon" alt="{{item.social_name}} Icon">
+    </div>
+    <p class="n5-social-name uB">{{item.social_name}}</p>
+    <a href="{{item.social_link}}" target="_blank" rel="noreferrer" class="n5-social-link">
+        <p class="n5-social-username uR">{{item.social_username}}</p>
+    </a>
+
+    {% if from_admin is True %}
+        <form class="n5-form" method="delete" target-url="{% url 'nepgear:social_delete' item.id %}">
+            {% csrf_token %}
+            <button class="n5-btn">DELETE</button>
+        </form>
+    {% endif %}
+</div>
+{% endfor %}

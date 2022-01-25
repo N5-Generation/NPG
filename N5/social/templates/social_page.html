@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Social profiles{% endblock %}
+
+{% block content %}
+    
+    {% if user.is_authenticated %}
+        you are authed, maybe edit this?
+    {% endif %}
+
+    {% include "social_card.html" %}
+
+{% endblock content %}
