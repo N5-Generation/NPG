@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path("social/", include("social.urls")),
     path("admin/", admin.site.urls),
-    path("nepgear/", include("nepgear.urls"))
+    path("nepgear/", include("nepgear.urls")),
+    path("", include("nepmia_website.urls"))
 ]
