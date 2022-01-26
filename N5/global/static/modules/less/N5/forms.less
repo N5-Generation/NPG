@@ -3,15 +3,41 @@
     flex-direction: column;
     justify-content: left;
     background-color: @onlydark_lowop;
+    overflow-x: auto;
+    padding: 10px;
 }
+.n5-modal-form {
+    max-height: 80vh;
+    margin: 0 30% 0 30%;
+}
+
+.n5-form > label {
+    margin-top: calc(20vh + 10px);
+    margin-bottom: 5px;
+    .uB();
+    color: white; 
+}
+.n5-form > label ~ label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    .uB();
+    color: white; 
+}
+
 .n5-input{
     border-radius: 5px;
-    .uL();
-    color: black;
-    background-color: white;
+    color: white;
     padding: 5px;
 }
-.n5-form > label{
-    .uB();
-    color: white;
+
+.n5-dropzone > input[type=file] {
+    width: 40%;
+    height: 20vh;
+    left: 0;
+    background-color: @primary;
+    position: absolute;
 }
+.n5-form > button {
+    margin-top: 20px;
+}
+

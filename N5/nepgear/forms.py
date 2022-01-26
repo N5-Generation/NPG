@@ -12,13 +12,17 @@ from social.models import SocialProfile
 possible_extension = (".jpg", ".png", ".svg")
 
 class SocialCreationForm(forms.ModelForm):
+    social_file = forms.FileField(
+        label="",
+        label_suffix="",
+    )
     social_name = forms.CharField(
         label="Profile name",
         label_suffix= "",
         widget=forms.TextInput(
             attrs= {
                 "placeholder": "Profile name",
-                "class": "n5-input"
+                "class": "n5-input onlydark_mid-bg onlydark_mid-h-bg uR"
             }
         )
     )
@@ -28,7 +32,7 @@ class SocialCreationForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs= {
                 "placeholder": "Username/Tag",
-                "class": "n5-input"
+                "class": "n5-input onlydark_mid-bg onlydark_mid-h-bg uR"
             }
         )
     )
@@ -38,7 +42,7 @@ class SocialCreationForm(forms.ModelForm):
         widget=forms.URLInput(
             attrs= {
                 "placeholder": "Icon url",
-                "class": "n5-input"
+                "class": "n5-input onlydark_mid-bg onlydark_mid-h-bg uR"
             }
         )
     )
@@ -48,7 +52,7 @@ class SocialCreationForm(forms.ModelForm):
         widget=forms.URLInput(
             attrs= {
                 "placeholder": "Profile url",
-                "class": "n5-input"
+                "class": "n5-input onlydark_mid-bg onlydark_mid-h-bg uR"
             }
         )
     )

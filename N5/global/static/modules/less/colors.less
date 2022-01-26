@@ -10,6 +10,7 @@
     alight: #d2b0eb;
     adark: #715389;
     onlydark: #636161;
+    onlydark_mid: #63616169;
     onlydark_lowop: #63616159;
     verydark: #111111;
     verydark_lowop: #11111186;
@@ -25,6 +26,7 @@
 @alight: #d2b0eb;
 @adark: #715389;
 @onlydark: #636161;
+@onlydark_mid: #6361619f;
 @onlydark_lowop: #63616159;
 @verydark: #111111;
 @verydark_lowop: #11111186;
@@ -36,5 +38,11 @@ each(@colors, {
     }
     .@{key}-bg {
         background-color: @value;
+    }
+    .@{key}-h-bg:hover {
+        background-color: @value;
+    }
+    .@{key}-h:hover {
+        color: @value;
     }
 });

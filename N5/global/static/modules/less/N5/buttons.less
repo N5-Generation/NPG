@@ -1,4 +1,4 @@
-.n5-addbtn-globals{
+.n5-btn-global{
     border-radius: 5px;
     .btrans();
 }
@@ -12,29 +12,28 @@
     min-height: 300px;
     opacity: 0.5;
     cursor: pointer;
-    .n5-addbtn-globals();
+    .n5-btn-global();
 }
-.n5-addbtn:hover {
+.n5-addbtn:hover{
     opacity: 1;
-    transform: scale(1.05);
-    .n5-addbtn-globals();
+    .n5-btn-hover();
 }
 .n5-addbtn:hover .n5-addbtn-icon{
     opacity: 1;
     transform: translateY(-10px);
-    .n5-addbtn-globals();
+    .n5-btn-global();
 }
 .n5-addbtn:hover .n5-addbtn-text{
     transform: translateY(0);
     opacity: 1;
-    .n5-addbtn-globals();
+    .n5-btn-global();
 }
 .n5-addbtn-icon{
     display: flex;
     justify-content: center;
     flex-direction: row;
     opacity: 0.5;
-    .n5-addbtn-globals();
+    .n5-btn-global();
 }
 .n5-addbtn-text{
     position: absolute;
@@ -44,6 +43,27 @@
     width: 100%;
     text-align: center;
     transform: translateY(25px);
-    .n5-addbtn-globals();
+    .n5-btn-global();
 }
 
+.n5-btn-hover{
+    transform: scale(1.05);
+    .n5-btn-global();
+}
+.n5-btn {
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    .n5-btn-global();
+}
+.n5-btn:hover{
+    .n5-btn-hover();
+}
+.n5-smallbtn{
+    .n5-btn();
+    width: fit-content;
+}
+.n5-smallbtn:hover {
+    .n5-btn-hover();
+}

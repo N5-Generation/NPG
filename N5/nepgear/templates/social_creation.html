@@ -1,5 +1,5 @@
-<form method="post" class="n5-form" target-url="{% url 'nepgear:social_creation' %}">
+<form method="post" class="n5-form n5-dropzone n5-modal-form" target-url="{% url 'nepgear:social_creation' %}">
     {% csrf_token %}
     {{form}}
-    <button type="submit" class="n5-btn">Submit</button>
+    <button type="submit" class="n5-smallbtn primary-bg plight-h-bg uB">Submit</button>
 </form>
