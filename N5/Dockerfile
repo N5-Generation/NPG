@@ -21,4 +21,4 @@ RUN apk update \
     && pip install Pillow \
     && apk del build-deps
 RUN pip install -r requirements.txt
-COPY --from=build /tmp/less/dist/main.cess global/static/modules/less/dist
+COPY --from=build /tmp/less/dist/main.css global/static/modules/less/dist
