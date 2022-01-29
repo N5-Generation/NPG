@@ -3,5 +3,15 @@
 {% block title %}SoonTM - Nepmia.fr{% endblock title %}
 
 {% block content %}
-    
+    <section class="soontm">
+        {% load static %}
+        <img src="{% static 'assets/next.svg' %}" alt="Nepmia's NEXT Logo" width=300 height=300 style="margin-left:auto;margin-right:auto;fill:white;">
+        <h1 class="uB" style="color: white;text-align:center">Soon™</h1>
+    </section>
 {% endblock content %}
+
+{% block footer %}
+    <p class="n5-footer-text-title">© NEPMIA 2022</p>
+    <p class="n5-footer-text">This website is currently in developpement. The page you see here is just a temp placeholder before the actual content gets released.</p>
+    <p class="n5-footer-sub">For any problems with the content displayed on this page please email <a class="n5-textlinks plight-h" href="mailto:admin@nepmia.fr">admin@nepmia.fr</a></p>
+{% endblock footer %}

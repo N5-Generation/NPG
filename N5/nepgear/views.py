@@ -45,7 +45,6 @@ def social_admin(request):
 
 @staff_member_required
 def social_delete(request, card):
-    print(card)
     object = get_object_or_404(SocialProfile, id=card)
 
     if request.method == "DELETE":
