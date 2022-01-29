@@ -10,9 +10,10 @@ from .forms import SocialCreationForm
 from social.models import SocialProfile
 
 # Create your views here.
-    
+
+@staff_member_required
 def dashboard(request):
-    return render(request, "dashboard.html")
+    return render(request, "npg_base.html")
 
 @method_decorator(ajax_required, name="get")
 class SocialCreationView(View):
@@ -36,11 +37,13 @@ class SocialCreationView(View):
         self.ctx["form"] = form
         return HttpResponse(json.dumps(errors), status=400)
 
+@staff_member_required
 def social_admin(request):
     social_profiles = list(SocialProfile.objects.all())
 
     return render(request, "social_admin.html", {"social_profiles": social_profiles})
 
+@staff_member_required
 def social_delete(request, card):
     print(card)
     object = get_object_or_404(SocialProfile, id=card)
