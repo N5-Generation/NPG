@@ -5,20 +5,13 @@
     background-color: @onlydark_lowop;
     overflow-x: auto;
     padding: 10px;
+    border-radius: 10px;
 }
 .n5-modal-form {
     max-height: 80vh;
     margin: 0 30% 0 30%;
 }
-
 .n5-form > label {
-    margin-top: calc(20vh + 10px);
-    margin-bottom: 5px;
-    .uB();
-    color: white; 
-}
-.n5-form > label ~ label {
-    margin-top: 10px;
     margin-bottom: 5px;
     .uB();
     color: white; 
@@ -28,16 +21,36 @@
     border-radius: 5px;
     color: white;
     padding: 5px;
+    .btrans();
+}
+.n5-input:hover::placeholder{
+    color: white;
+    .btrans();
+}
+.n5-input::placeholder{
+    .btrans();
+}
+.n5-input:valid {
+    .btrans();
+    box-shadow:inset 0px 0px 0px 1px @primary;
 }
 
 .n5-dropzone > input[type=file] {
-    width: 40%;
-    height: 20vh;
-    left: 0;
-    background-color: @primary;
     position: absolute;
+    opacity:0;
+    height: 25vh;
+    width: calc(40% - 20px);
 }
+
 .n5-form > button {
     margin-top: 20px;
 }
 
+.n5-file-label {
+    background-color: @onlydark_mid;
+    border-radius: 10px;
+    height: 25vh;
+}
+.n5-file-label:focus{
+    background-color: @plight;
+}

@@ -23,6 +23,15 @@
 
 <body class="n5-darkgrad-background">
     
+    <nav class="n5-nav">
+        <div class="n5-nav-brand"></div>
+    
+        <section class="n5-nav-content">
+            {% block nav_content %}
+            {% endblock nav_content %}
+        </section>
+    </nav>
+
     <div class="n5-texture-container">
         <div class="n5-texture" style="background-image: url('{% static 'assets/n5-texture.svg' %}')"></div>
     </div>

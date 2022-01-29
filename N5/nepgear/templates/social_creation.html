@@ -3,3 +3,22 @@
     {{form}}
     <button type="submit" class="n5-smallbtn primary-bg plight-h-bg uB">Submit</button>
 </form>
+
+<script>
+    let input_name = $(".n5-file-input").attr("id");
+    
+    $(`label[for=${input_name}]`).addClass("n5-file-label");
+
+    $(".n5-file-label").append(`<img src="" alt="Uploaded image preview" id="n5_imgformPreview">`)
+    $(".n5-file-label").append(`<div id="n5_imgformPreviewBg">`)
+
+
+    n5_dropzoneInput.onchange = evt => {
+        let [file] = n5_dropzoneInput.files
+        if (file) { 
+            let object_url = URL.createObjectURL(file)
+            n5_imgformPreview.src = object_url
+            $("#n5_imgformPreviewBg").css("background-image", object_url)
+        }
+    }
+</script>

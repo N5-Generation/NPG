@@ -10,6 +10,9 @@ from .forms import SocialCreationForm
 from social.models import SocialProfile
 
 # Create your views here.
+    
+def dashboard(request):
+    return render(request, "dashboard.html")
 
 @method_decorator(ajax_required, name="get")
 class SocialCreationView(View):
@@ -47,6 +50,3 @@ def social_delete(request, card):
         return HttpResponse(json.dumps({"status" : "sucess"}), status=200)
     return HttpResponse("idk bro")
 
-    
-def temp_dash(request):
-    return render(request, "temp_dash.html")
