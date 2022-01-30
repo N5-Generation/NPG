@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 
+{% block meta %}
+<meta name="description" content="Nepmia.fr - Under developpement place holder.">
+<meta name="theme-color" content="#2d80c3">
+<meta property="og:description" content="Nepmia.fr - Under developpement place holder.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NPG">
+<meta property="og:image" content="{% static 'assets/next.svg' %}">
+{% endblock meta %}
+
 {% block title %}SoonTM - Nepmia.fr{% endblock title %}
 
 {% block content %}
-    <section class="soontm">
+    <div class="soontm">
         {% load static %}
         <img src="{% static 'assets/next.svg' %}" alt="Nepmia's NEXT Logo" width=300 height=300 style="margin-left:auto;margin-right:auto;fill:white;">
         <h1 class="uB" style="color: white;text-align:center">Soon™</h1>
-    </section>
+    </div>
 {% endblock content %}
 
 {% block footer %}

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block head %}
+    
+    {% load static %}
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% block meta %}{% endblock %}
+    <link rel="icon" href="{% static 'assets/next.svg' %}" type="image/png">
+    <link rel="shortcut icon" href="{% static 'assets/next.svg' %}" type="image/png">
 
     {# Font Awesome #}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 
-    {% load static %}
 
     
     {# main less rules #}
     <link rel="stylesheet" media="screen" href="{% static 'modules/less/dist/main.css' %}">
     
-    {% endblock %}
     
     <title>{% block title %}{% endblock %}</title>
     
