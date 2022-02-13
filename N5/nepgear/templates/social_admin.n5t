@@ -1,11 +1,11 @@
-{% extends "npg_base.html" %}
+{% extends "npg_base.n5t" %}
 {% block title %}Social profile administration - Nepgear{% endblock %}
 
 {% block content %}
 <section class="n5-social-frame">
 
     {% with from_admin=True %}
-        {% include "social_card.html" %}
+        {% include "social_card.n5t" %}
     {% endwith %}
 
     <button class="n5-cardbtn plight-h-bg getModal primary-bg" method="get" url="{% url 'nepgear:social_creation' %}" type="form">

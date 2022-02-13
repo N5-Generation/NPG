@@ -1,6 +1,6 @@
 FROM node:10.9 as build
 WORKDIR /tmp
-COPY global/static/modules/less/ /tmp/less/
+COPY ./global/static/modules/less/ /tmp/less/
 RUN npm install -g less
 RUN lessc /tmp/less/main.less /tmp/less/dist/main.css
 
@@ -21,4 +21,4 @@ RUN apk update \
     && pip install Pillow \
     && apk del build-deps
 RUN pip install -r requirements.txt
-COPY --from=build /tmp/less/dist/main.css global/static/modules/less/dist
+COPY --from=build /tmp/less/dist/main.css /usr/src/N5/global/static/modules/less/dist

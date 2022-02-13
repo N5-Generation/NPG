@@ -12,16 +12,16 @@ from social.models import SocialProfile
 possible_extension = (".jpg", ".png", ".svg")
 
 class SocialCreationForm(forms.ModelForm):
-    social_file = forms.ImageField(
-        label="Social Icon",
-        label_suffix="",
-        widget=forms.FileInput(
-            attrs= {
-                "class": "n5-file-input",
-                "id": "n5_dropzoneInput",
-            }
-        )
-    )
+    # social_file = forms.ImageField(
+    #     label="Social Icon",
+    #     label_suffix="",
+    #     widget=forms.FileInput(
+    #         attrs= {
+    #             "class": "n5-file-input",
+    #             "id": "n5_dropzoneInput",
+    #         }
+    #     )
+    # )
     social_icon = forms.URLField(
         label="",
         label_suffix= "",
@@ -71,7 +71,7 @@ class SocialCreationForm(forms.ModelForm):
 
     class Meta:
         model = SocialProfile
-        fields = ("social_file","social_icon", "social_name", "social_username", "social_link", "social_color")
+        fields = ("social_icon", "social_name", "social_username", "social_link", "social_color")
 
     def clean(self):
         cleaned_data = super().clean()

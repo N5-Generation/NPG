@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.n5t" %}
 {% block title %}Social profiles{% endblock %}
 
 {% block content %}
@@ -7,6 +7,6 @@
         you are authed, maybe edit this?
     {% endif %}
 
-    {% include "social_card.html" %}
+    {% include "social_card.n5t" %}
 
 {% endblock content %}

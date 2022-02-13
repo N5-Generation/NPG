@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.n5t' %}
 
 {% block title %}Dashboard - Nepgear{% endblock title %}
 

@@ -13,7 +13,7 @@ from social.models import SocialProfile
 
 @staff_member_required
 def dashboard(request):
-    return render(request, "npg_base.html")
+    return render(request, "npg_base.n5t")
 
 @method_decorator(ajax_required, name="get")
 class SocialCreationView(View):
@@ -23,7 +23,7 @@ class SocialCreationView(View):
 
     def get(self, request, *args, **kwargs):
         
-        return render(request, "social_creation.html", self.ctx)
+        return render(request, "social_creation.n5t", self.ctx)
 
     def post(self, request, *args, **kwargs):
         payload = json.loads(request.body.decode())
@@ -41,7 +41,7 @@ class SocialCreationView(View):
 def social_admin(request):
     social_profiles = list(SocialProfile.objects.all())
 
-    return render(request, "social_admin.html", {"social_profiles": social_profiles})
+    return render(request, "social_admin.n5t", {"social_profiles": social_profiles})
 
 @staff_member_required
 def social_delete(request, card):
@@ -50,5 +50,5 @@ def social_delete(request, card):
     if request.method == "DELETE":
         object.delete()
         return HttpResponse(json.dumps({"status" : "sucess"}), status=200)
-    return HttpResponse("idk bro")
+    return HttpResponse(json.dumps({"status":"failure"}), status=400)
 

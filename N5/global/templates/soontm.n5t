@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.n5t" %}
 
 {% block meta %}
 {% load static %}
